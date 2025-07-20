@@ -41,3 +41,7 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build with Gradle
         run: ./gradlew clean build
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/${{ env.MYSQL_DATABASE }}
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: ${{ env.MYSQL_PASSWORD }}
