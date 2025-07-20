@@ -20,12 +20,12 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_PASSWORD }}
-          MYSQL_DATABASE: ${{ env.MYSQL_DATABASE }}
+          MYSQL_ROOT_PASSWORD: 1234         # 하드코딩하거나 임시 비밀번호
+          MYSQL_DATABASE: test_github_action
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h 127.0.0.1 -u root -p${{ env.MYSQL_PASSWORD }}"
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -u root -p1234"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
